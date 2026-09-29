@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackout Store — Streetwear Pescara</title>
+  <meta name="description" content="Blackout Store: streetwear autentico a Pescara. Felpe, t-shirt, cargo, giacche, sneakers e accessori.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#home" class="nav__logo">BLACK<span>OUT</span></a>
+      <nav class="nav__links" aria-label="Navigazione principale">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#collezione">Collezione</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="cart-btn wish-btn" id="wishBtn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+          <span class="cart-count" id="wishCount">0</span>
+        </button>
+        <button class="cart-btn" id="cartBtn" aria-label="Carrello">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-menu__links">
+      <a href="#home">Home</a>
+      <a href="#drop">Nuovo drop</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#collezione">Collezione</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <p class="mobile-menu__foot">Via Nicola Fabrizi 84 · Pescara</p>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__bg" data-parallax-hero role="img" aria-label="Streetwear urban style, ragazzo con giacca davanti a muro di poster"><div class="hero__bg-img"></div></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content container" id="heroContent">
+        <p class="hero__tag">Pescara · Est. 2019</p>
+        <h1 class="hero__title glitch" id="heroTitle" data-text="BLACKOUT&#10;STORE" aria-label="Blackout Store"></h1>
+        <p class="hero__claim">Spegni la luce. <span>Accendi lo stile.</span></p>
+        <a href="#collezione" class="btn btn--primary hero__cta">Scopri la collezione
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <a href="#chi-siamo" class="hero__scroll" aria-label="Scorri giù"><span></span></a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>STREETWEAR AUTENTICO ✦ DROP SETTIMANALI ✦ MADE FOR THE STREETS ✦ PESCARA CITY ✦ LIMITED EDITION ✦ </span>
+        <span>STREETWEAR AUTENTICO ✦ DROP SETTIMANALI ✦ MADE FOR THE STREETS ✦ PESCARA CITY ✦ LIMITED EDITION ✦ </span>
+      </div>
+    </div>
+
+    <!-- COUNTDOWN NUOVO DROP -->
+    <section class="drop" id="drop">
+      <div class="drop__bg" data-parallax="0.25" aria-hidden="true"></div>
+      <div class="container drop__inner reveal">
+        <span class="drop__live"><i></i> Nuovo drop in arrivo</span>
+        <h2 class="drop__title">Drop 07 — <em>Blackout Night</em></h2>
+        <p class="drop__date" id="dropDate"></p>
+        <div class="countdown" id="countdown" role="timer" aria-live="off">
+          <div class="countdown__unit"><span class="countdown__num" data-unit="d">00</span><span class="countdown__label">Giorni</span></div>
+          <span class="countdown__sep" aria-hidden="true">:</span>
+          <div class="countdown__unit"><span class="countdown__num" data-unit="h">00</span><span class="countdown__label">Ore</span></div>
+          <span class="countdown__sep" aria-hidden="true">:</span>
+          <div class="countdown__unit"><span class="countdown__num" data-unit="m">00</span><span class="countdown__label">Minuti</span></div>
+          <span class="countdown__sep" aria-hidden="true">:</span>
+          <div class="countdown__unit"><span class="countdown__num" data-unit="s">00</span><span class="countdown__label">Secondi</span></div>
+        </div>
+        <a href="#newsletter" class="btn btn--outline">Avvisami al lancio</a>
+      </div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section class="section about" id="chi-siamo">
+      <div class="container about__grid">
+        <div class="about__text reveal reveal--left">
+          <span class="eyebrow">Chi siamo</span>
+          <h2 class="section-title">Nati sull'asfalto,<br>cuciti per <em>durare</em>.</h2>
+          <p>Blackout Store nasce nel 2019 tra le strade di Pescara, da un gruppo di skater, writer e appassionati di sneakers stanchi della moda usa e getta. Selezioniamo solo capi che raccontano la cultura urbana: quella vera, fatta di muri dipinti, beat e notti in giro per la città.</p>
+          <ul class="about__values">
+            <li><strong>Streetwear autentico</strong><span>Brand indipendenti e capsule esclusive, niente copie.</span></li>
+            <li><strong>Materiali di qualità</strong><span>Cotone heavyweight 400 gsm, nylon tecnico, cuciture rinforzate.</span></li>
+            <li><strong>Community</strong><span>Jam, release party e contest di graffiti nel nostro spazio.</span></li>
+          </ul>
+          <div class="about__stats">
+            <div><b data-count="6">0</b><span>anni in strada</span></div>
+            <div><b data-count="40">0</b><span>brand selezionati</span></div>
+            <div><b data-count="12">0</b><span>k community</span></div>
+          </div>
+        </div>
+        <div class="about__media reveal reveal--right">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=900&q=80" alt="Interno negozio streetwear con capi appesi" loading="lazy" data-keyword="streetwear store">
+          <img class="about__media-small" src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=600&q=80" alt="Moda streetwear uomo con giacca di pelle nera" loading="lazy" data-keyword="moda streetwear uomo">
+          <span class="about__sticker">since<br>2019</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLEZIONE -->
+    <section class="section products" id="collezione">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Collezione FW26</span>
+          <h2 class="section-title">Il drop <em>della stagione</em></h2>
+          <div class="filters" role="tablist" aria-label="Filtra per categoria">
+            <button class="filter is-active" data-filter="all" aria-pressed="true">Tutti</button>
+            <button class="filter" data-filter="felpe" aria-pressed="false">Felpe</button>
+            <button class="filter" data-filter="tshirt" aria-pressed="false">T-shirt</button>
+            <button class="filter" data-filter="pantaloni" aria-pressed="false">Pantaloni</button>
+            <button class="filter" data-filter="giacche" aria-pressed="false">Giacche</button>
+            <button class="filter" data-filter="sneakers" aria-pressed="false">Sneakers</button>
+            <button class="filter" data-filter="accessori" aria-pressed="false">Accessori</button>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="section lookbook" id="lookbook">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Lookbook</span>
+          <h2 class="section-title">Street <em>editorial</em></h2>
+          <p class="section-sub">Scattato tra i sottopassi e i murales di Pescara. Clicca per aprire.</p>
+        </div>
+        <div class="mosaic" id="mosaic"></div>
+      </div>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section class="section reviews" id="recensioni">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Recensioni</span>
+          <h2 class="section-title">La voce <em>della strada</em></h2>
+        </div>
+      </div>
+      <div class="reviews__viewport reveal">
+        <div class="reviews__track" id="reviewsTrack"></div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section newsletter" id="newsletter">
+      <div class="container newsletter__box reveal">
+        <span class="eyebrow">Newsletter</span>
+        <h2 class="section-title">Non perderti <em>il prossimo drop</em></h2>
+        <p class="section-sub">Accesso anticipato alle release e -10% sul primo ordine. Zero spam.</p>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <label for="email" class="sr-only">Email</label>
+          <input type="email" id="email" name="email" placeholder="la-tua@email.com" autocomplete="email" required>
+          <button type="submit" class="btn btn--primary">
+            <span class="btn__label">Iscriviti</span>
+            <svg class="btn__check" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg>
+          </button>
+        </form>
+        <p class="newsletter__msg" id="newsletterMsg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTATTI / FOOTER -->
+  <footer class="footer" id="contatti">
+    <div class="container footer__grid">
+      <div class="footer__brand reveal">
+        <a href="#home" class="nav__logo">BLACK<span>OUT</span></a>
+        <p>Streetwear autentico dal 2019. Vieni a trovarci, il caffè lo offriamo noi.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 3c.3 2.2 1.7 3.8 4 4v3.2c-1.5 0-2.9-.4-4-1.2v6.3A5.8 5.8 0 1 1 10.7 9.5v3.3a2.6 2.6 0 1 0 2.6 2.6V3h3.2z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v6h4v-6H17l.5-4h-4V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col reveal">
+        <h4>Negozio</h4>
+        <address>Via Nicola Fabrizi 84<br>65122 Pescara (PE)<br><a href="tel:+390851234567">+39 085 123 4567</a><br><a href="mailto:ciao@blackoutstore.it">ciao@blackoutstore.it</a></address>
+      </div>
+      <div class="footer__col reveal">
+        <h4>Orari</h4>
+        <ul class="hours">
+          <li><span>Lun</span><span>15:30 – 20:00</span></li>
+          <li><span>Mar – Ven</span><span>10:00 – 13:00 · 15:30 – 20:00</span></li>
+          <li><span>Sabato</span><span>10:00 – 20:30</span></li>
+          <li><span>Domenica</span><span>Chiuso</span></li>
+        </ul>
+      </div>
+      <div class="footer__col reveal">
+        <h4>Link rapidi</h4>
+        <ul class="footer__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#collezione">Collezione</a></li>
+          <li><a href="#lookbook">Lookbook</a></li>
+          <li><a href="#recensioni">Recensioni</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__map reveal">
+      <div class="map">
+        <iframe
+          title="Mappa: Blackout Store, Via Nicola Fabrizi 84, Pescara"
+          src="https://maps.google.com/maps?q=Via%20Nicola%20Fabrizi%2084%2C%2065122%20Pescara%20PE&amp;z=16&amp;hl=it&amp;output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map__card">
+          <span class="eyebrow">Vieni a trovarci</span>
+          <strong>Blackout Store</strong>
+          <span>Via Nicola Fabrizi 84, Pescara</span>
+          <a class="map__link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Via%20Nicola%20Fabrizi%2084%2C%20Pescara" target="_blank" rel="noopener">Indicazioni stradali →</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Blackout Store — Sito dimostrativo</span>
+      <span class="footer__tag">stay dark ✦</span>
+    </div>
+  </footer>
+
+  <!-- MODALE PRODOTTO -->
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Chiudi">✕</button>
+      <div class="pm">
+        <div class="pm__gallery">
+          <img id="pmImg" src="" alt="">
+          <div class="pm__thumbs" id="pmThumbs"></div>
+        </div>
+        <div class="pm__info">
+          <span class="eyebrow" id="pmCat"></span>
+          <h3 id="pmName"></h3>
+          <p class="pm__price" id="pmPrice"></p>
+          <p class="pm__desc" id="pmDesc"></p>
+          <p class="pm__label">Taglia</p>
+          <div class="sizes" id="pmSizes"></div>
+          <button class="btn btn--primary btn--block" id="pmAdd">Aggiungi al carrello</button>
+          <p class="pm__note">Negozio dimostrativo: nessun acquisto reale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galleria">
+    <button class="lightbox__close" data-lb-close aria-label="Chiudi">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Precedente">‹</button>
+    <figure class="lightbox__figure">
+      <img id="lbImg" src="" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Successiva">›</button>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
