@@ -563,6 +563,67 @@
   });
   email.addEventListener("input", () => email.classList.remove("is-error"));
 
+  /* ---------- CURSORE STREETWEAR ---------- */
+  // Solo con mouse/trackpad e senza "riduci movimento": su touch resta tutto nativo
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    const STAR = "M1 -19 L2.9 -6.9 L10.6 -11.3 L7.9 -3.3 L18 -0.6 L6.3 2.6 L11 12.3 L3.1 7.4 L0.7 19.5 L-2.8 6.7 L-10.2 11 L-8.1 3.4 L-17.5 -0.9 L-6 -2.5 L-11.7 -10.9 L-3.1 -7.6Z";
+    const cur = document.createElement("div");
+    cur.className = "cursor";
+    cur.setAttribute("aria-hidden", "true");
+    cur.innerHTML = `<div class="cursor__star"><svg viewBox="-20 -20 40 40"><path class="edge" d="${STAR}"/><path class="face" d="${STAR}"/></svg></div><div class="cursor__tip"></div>`;
+    const sparks = Array.from({ length: 12 }, () => cur.appendChild(Object.assign(document.createElement("span"), { className: "cursor__spark" })));
+    document.body.appendChild(cur);
+    document.documentElement.classList.add("has-cursor");
+
+    const tip = $(".cursor__tip", cur);
+    const star = $(".cursor__star", cur);
+    const CLICKABLE = "a, button, [role='button'], [role='tab'], label, summary, .mosaic__item";
+    const TEXT = "input, textarea, select, [contenteditable]";
+    let mx = -100, my = -100, sx = -100, sy = -100, raf = 0, sparkIdx = 0, hoverEl = null;
+
+    // la stella insegue la punta con un lerp; il loop si ferma quando è arrivata
+    const loop = () => {
+      sx += (mx - sx) * 0.22;
+      sy += (my - sy) * 0.22;
+      star.style.transform = `translate3d(${sx}px, ${sy}px, 0)`;
+      raf = Math.abs(mx - sx) + Math.abs(my - sy) > 0.2 ? requestAnimationFrame(loop) : 0;
+    };
+
+    // scintille: pool fisso di elementi animati via WAAPI (solo transform/opacity)
+    const burst = (n, dist) => {
+      for (let i = 0; i < n; i++) {
+        const s = sparks[sparkIdx++ % sparks.length];
+        const a = (i / n) * 360 + Math.random() * 30;
+        const d = dist * (0.7 + Math.random() * 0.6);
+        const rad = (a * Math.PI) / 180;
+        const from = `translate3d(${mx}px, ${my}px, 0) rotate(${a + 90}deg)`;
+        const to = `translate3d(${mx + Math.cos(rad) * d}px, ${my + Math.sin(rad) * d}px, 0) rotate(${a + 90}deg) scaleY(.2)`;
+        s.animate([{ transform: from, opacity: 1 }, { transform: to, opacity: 0 }], { duration: 420, easing: "cubic-bezier(.2,.8,.3,1)" });
+      }
+    };
+
+    window.addEventListener("mousemove", (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!cur.classList.contains("is-visible")) { sx = mx; sy = my; } // niente "volo" dall'angolo al rientro
+      tip.style.transform = `translate3d(${mx}px, ${my}px, 0) rotate(45deg)`;
+      cur.classList.add("is-visible");
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+
+    document.addEventListener("mouseover", (e) => {
+      const t = e.target instanceof Element ? e.target : null;
+      cur.classList.toggle("is-text", !!(t && t.closest(TEXT)));
+      const el = t && t.closest(CLICKABLE);
+      if (el === hoverEl) return;
+      hoverEl = el;
+      cur.classList.toggle("is-hover", !!el);
+      if (el) burst(5, 22);
+    });
+    document.documentElement.addEventListener("mouseleave", () => cur.classList.remove("is-visible"));
+    window.addEventListener("mousedown", () => { cur.classList.add("is-down"); burst(8, 34); });
+    window.addEventListener("mouseup", () => cur.classList.remove("is-down"));
+  }
+
   /* ---------- VARIE ---------- */
   $("#year").textContent = new Date().getFullYear();
 })();
